@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Postgres.Models;
+
+public partial class OrderItem
+{
+    public int OrderId { get; set; }
+
+    public int ProductId { get; set; }
+
+    public int Quantity { get; set; }
+
+    public decimal UnitPrice { get; set; }
+
+    public virtual Order Order { get; set; } = null!;
+
+    public virtual Product Product { get; set; } = null!;
+
+    public override string ToString() =>
+    $"OrderId={OrderId}, ProductId={ProductId}, Qty={Quantity}, Price={UnitPrice}";
+}
